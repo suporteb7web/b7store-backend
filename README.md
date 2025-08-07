@@ -5,6 +5,7 @@ This document describes all available API routes, their parameters, request/resp
 ---
 
 ## Table of Contents
+- [Installation](#installation)
 - [General](#general)
 - [Banners](#banners)
 - [Products](#products)
@@ -14,6 +15,96 @@ This document describes all available API routes, their parameters, request/resp
 - [Orders](#orders)
 - [Webhooks](#webhooks)
 
+---
+
+## Installation
+
+### Prerequisites
+
+Before setting up the project, make sure you have the following installed:
+
+- **Node.js** (version 18 or higher)
+- **npm** or **yarn** package manager
+- **PostgreSQL** database (version 12 or higher)
+- **Git** for version control
+
+### Setup Instructions
+
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd b7store-backend
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Environment Configuration**
+   
+   Copy the environment example file and configure your variables:
+   ```bash
+   cp .env.example .env
+   ```
+   
+   Then edit the `.env` file with your specific configuration values (database URL, Stripe keys, etc.).
+
+4. **Database Setup**
+   
+   Make sure your PostgreSQL database is running and accessible. Verify your `DATABASE_URL` variable in the `.env` file is correctly configured for your database connection.
+
+5. **Run Database Migrations**
+   
+   Apply the database schema:
+   ```bash
+   npx prisma migrate deploy
+   ```
+   
+   Or for development with migration history:
+   ```bash
+   npx prisma migrate dev
+   ```
+
+6. **Generate Prisma Client**
+   ```bash
+   npx prisma generate
+   ```
+
+7. **Seed the Database**
+   
+   Populate the database with initial data (categories, products, banners):
+   ```bash
+   npm run db:seed
+   ```
+
+### Running the Project
+
+#### Development Mode
+```bash
+npm run dev
+```
+
+The server will start on `http://localhost:4000` (or the port specified in your `.env` file).
+
+#### Production Mode
+```bash
+# Build the project (if applicable)
+npm run build
+
+# Start the production server
+npm start
+```
+
+### Verifying the Installation
+
+1. **Health Check**
+   
+   Visit `http://localhost:3000/ping` - you should see:
+   ```json
+   { "pong": true }
+   ```
+  
 ---
 
 ## General
