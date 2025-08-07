@@ -101,7 +101,7 @@ async function main() {
             data: {
                 label: 'Camisa RN',
                 price: 89.90,
-                description: 'Camisa com estampa de Node.js, perfeita para desenvolvedores',
+                description: 'Camisa com estampa de React Native, perfeita para desenvolvedores',
                 categoryId: category.id
             }
         }),
@@ -161,7 +161,7 @@ async function main() {
             data: {
                 productId: products[0].id,
                 categoryMetadataId: 'tech',
-                metadataValueId: 'node'
+                metadataValueId: 'react'
             }
         }),
         prisma.productMetadata.create({
